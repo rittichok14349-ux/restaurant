@@ -6,6 +6,7 @@ import Findstore from './pages/Findstore';
 import SearchRestaurants from './pages/SearchRestaurants';
 import Footer from './components/Footer';
 import RestaurantDetail from './pages/RestaurantDetail';
+import CardDetail from './pages/CardDetail';
 
 const App = () => {
   const homeRef = useRef(null);
@@ -47,6 +48,7 @@ const App = () => {
         />
 
         {/* หน้ารายละเอียดร้าน */}
+        <Route path="/restaurant/:id" element={<CardDetail />} />
         <Route path="/restaurant/:id" element={<RestaurantDetail />} />
       </Routes>
     </Router>

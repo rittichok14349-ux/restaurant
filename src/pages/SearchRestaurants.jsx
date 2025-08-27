@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const restaurants = [
   {
@@ -64,6 +64,44 @@ const restaurants = [
 ];
 
 export default function SearchRestaurants() {
+  const [selected, setSelected] = useState(null);
+
+  if (selected) {
+    // ✅ หน้ารายละเอียด
+    return (
+      <div className="container mx-auto py-10">
+        <button
+          onClick={() => setSelected(null)}
+          className="mb-6 bg-gray-200 px-4 py-2 rounded-xl hover:bg-gray-300 transition"
+        >
+          ⬅ กลับไปหน้ารวมร้าน
+        </button>
+
+        <div className="bg-white rounded-2xl shadow-md p-6">
+          <img
+            src={selected.img}
+            alt={selected.name}
+            className="w-full h-64 object-cover rounded-xl"
+          />
+          <h2 className="text-3xl font-bold mt-4">{selected.name}</h2>
+          <p className="text-gray-500">{selected.location}</p>
+          <p className="mt-2">⭐ {selected.rating} ({selected.reviews} รีวิว)</p>
+          <div className="flex flex-wrap gap-2 mt-4">
+            {selected.tags.map((tag, i) => (
+              <span
+                key={i}
+                className="bg-green-100 text-green-600 text-sm px-3 py-1 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ✅ หน้ารวมร้านอาหาร
   return (
     <div className="container mx-auto py-10">
       <h2 className="text-center text-3xl font-bold mb-2">
@@ -73,7 +111,6 @@ export default function SearchRestaurants() {
         พบกับ {restaurants.length} ร้านอาหารท้องถิ่นที่ดีที่สุด
       </p>
 
-      {/* ใช้ Tailwind ทำ Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {restaurants.map((r) => (
           <div
@@ -98,10 +135,9 @@ export default function SearchRestaurants() {
                   </span>
                 ))}
               </div>
-                  
-              <button
 
-                onClick={() => (window.location.href = `/restaurants/${r.id}`)}
+              <button
+                onClick={() => setSelected(r)}
                 className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded-xl hover:bg-green-700 transition"
               >
                 ดูรายละเอียด
