@@ -7,7 +7,7 @@ const Header = ({ onHomeClick, onFindStoreClick }) => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="/h3.jpg"
+            src="/img/h3.jpg"
             alt="Thai Local Food Logo"
             className="w-8 h-8 rounded-md"
           />

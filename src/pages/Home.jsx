@@ -1,16 +1,17 @@
-import React from 'react';
-
-const Home = ({ onFindStoreClick }) => { // ✅ เพิ่ม props ตรงนี้
+import React from "react";
+import { Link } from 'react-router-dom';
+const Home = ({ onFindStoreClick }) => {
+  // ✅ เพิ่ม props ตรงนี้
   return (
     <>
       <section
         id="home"
         className="relative bg-cover bg-center h-screen flex items-center justify-center "
         style={{
-          backgroundImage: "url('h2.jpg')",
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundImage: 'url("/img/h2.jpg")',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         {/* ชั้นมืดครอบพื้นหลัง */}
@@ -19,7 +20,8 @@ const Home = ({ onFindStoreClick }) => { // ✅ เพิ่ม props ตรง�
         {/* เนื้อหาตรงกลาง */}
         <div className="relative text-white text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-            ค้นพบ <span className="text-orange-500">ร้านอาหารท้องถิ่น</span> ที่ดีที่สุด
+            ค้นพบ <span className="text-orange-500">ร้านอาหารท้องถิ่น</span>{" "}
+            ที่ดีที่สุด
           </h1>
           <p className="text-lg md:text-xl mb-8 drop-shadow-md">
             สำรวจรสชาติแท้ของอาหารไทยจากร้านอาหารท้องถิ่นที่ดีที่สุดทั่วประเทศไทย
