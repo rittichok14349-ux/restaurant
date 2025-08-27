@@ -1,48 +1,32 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react'
+import cardData from '../services/cardData'
+import { useNavigate,useParams } from 'react-router-dom'
 
-const RestaurantDetail = () => {
-  const { id } = useParams(); // รับ id จาก URL เช่น /restaurant/1
+const CardDetail = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const cardDetail = cardData.find(item => item.id === parseInt(id));
 
-  // ข้อมูลตัวอย่าง สามารถเปลี่ยนเป็น fetch API ได้
-  const restaurant = {
-    id,
-    name: 'จันทร์โภชนา',
-    province: 'จันทบุรี',
-    image: '/images/janrestaurant.jpg', // ใส่ path รูปจริง
-    description: 'ร้านอาหารพื้นเมืองจันทบุรี รสชาติจัดจ้าน วัตถุดิบสดใหม่',
-    tags: ['ยำหมูดุด รสเด็ด', 'ปลาต้มระกำใส่กระวาน'],
-    address: '123 ถนนสุขเกษม จันทบุรี',
-    openHours: '10:00 - 20:00 น.',
-    contact: '089-123-4567'
-  };
+    
+    return (
+        <>
+            <main className='flex-grow'>
+                <div className='container mx-auto py-10 px-4'>
+                  <button onClick={() => navigate(-1)} className='bg-purple-500 text-white font-semibold rounded-full hover:bg-purple-700 transition cursor-pointer px-3 py-2'>Back</button>
+                    <div className='mt-8 bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row'>
+                        <div className='md:w-1/2 w-full'>
+                            <img src={cardDetail.imageUrl} alt="" className='w-full h-full object-cover' />
+                        </div>
 
-  return (
-    <div className="max-w-4xl mx-auto p-4 mt-6">
-      <img
-        src={restaurant.image}
-        alt={restaurant.name}
-        className="w-full h-64 object-cover rounded-md mb-4"
-      />
-      <h1 className="text-2xl font-bold mb-2">{restaurant.name}</h1>
-      <p className="text-gray-600 mb-2">{restaurant.province}</p>
-      <p className="mb-4">{restaurant.description}</p>
+                        <div className='md:w-1/2 w-full p-6 flex flex-col'>
+                            <h1 className='text-3xl font-bold mb-4 text-purple-800'>{cardDetail.title}</h1>
+                            <p className='text-gray-700 text-lg leading-relaxed'>{cardDetail.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </>
+    )
+}
 
-      <div className="flex flex-wrap gap-2 mb-4">
-        {restaurant.tags.map((tag, index) => (
-          <span key={index} className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="border-t pt-4 text-sm text-gray-700 space-y-2">
-        <p><strong>ที่อยู่:</strong> {restaurant.address}</p>
-        <p><strong>เวลาเปิด:</strong> {restaurant.openHours}</p>
-        <p><strong>ติดต่อ:</strong> {restaurant.contact}</p>
-      </div>
-    </div>
-  );
-};
-
-export default RestaurantDetail;
+export default CardDetail

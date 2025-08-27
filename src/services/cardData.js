@@ -1,6 +1,4 @@
-import React from "react";
-
-const restaurants = [
+const cardData = [
   {
     id: 1,
     name: "Ongtong Khaosoi x Ari",
@@ -62,54 +60,4 @@ const restaurants = [
     tags: ["น่องไก่ทอด กรุงเก่า", "สะโพกไก่ทอด กรุงเก่า ", "ปีกไก่ทอด กรุงเก่า "],
   },
 ];
-
-export default function SearchRestaurants() {
-  return (
-    <div className="container mx-auto py-10">
-      <h2 className="text-center text-3xl font-bold mb-2">
-        ร้านอาหาร <span className="text-green-600">แนะนำ</span>
-      </h2>
-      <p className="text-center text-gray-500 mb-8">
-        พบกับ {restaurants.length} ร้านอาหารท้องถิ่นที่ดีที่สุด
-      </p>
-
-      {/* ใช้ Tailwind ทำ Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {restaurants.map((r) => (
-          <div
-            key={r.id}
-            className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
-          >
-            <img
-              src={r.img}
-              alt={r.name}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">{r.name}</h3>
-              <p className="text-sm text-gray-500">{r.location}</p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {r.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-                  
-              <button
-
-                onClick={() => (window.location.href = `/restaurants/${r.id}`)}
-                className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded-xl hover:bg-green-700 transition"
-              >
-                ดูรายละเอียด
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+export default cardData;
