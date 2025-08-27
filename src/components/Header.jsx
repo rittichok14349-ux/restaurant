@@ -2,26 +2,27 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-orange-500 text-white shadow-md sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* โลโก้ / ชื่อเว็บ */}
-        <h1 className="text-2xl font-bold tracking-wide">
-          🍜 แนะนำร้านอาหารท้องถิ่น
-        </h1>
+    <header className="bg-white bg-opacity-90 shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <img
+            src="/h3.jpg" // ใส่ path โลโก้ที่คุณใช้
+            alt="Thai Local Food Logo"
+            className="w-8 h-8 rounded-md"
+          />
+          <span className="text-lg font-bold text-gray-800">Thai Local Food</span>
+        </div>
 
-        {/* เมนูนำทาง */}
-        <nav className="space-x-6 hidden md:flex">
-          <a href="#home" className="hover:text-yellow-200">หน้าแรก</a>
-          <a href="#restaurants" className="hover:text-yellow-200">ร้านอาหาร</a>
-          <a href="#favorites" className="hover:text-yellow-200">ร้านโปรด</a>
-          <a href="#contact" className="hover:text-yellow-200">ติดต่อ</a>
+        {/* Navigation */}
+        <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <a href="#home" className="hover:text-orange-500">หน้าแรก</a>
+          <a href="#search" className="hover:text-orange-500">ค้นหาร้าน</a>
+          <a href="#about" className="hover:text-orange-500">ติดต่อ</a>
         </nav>
 
-        {/* ปุ่มเมนูมือถือ (ถ้าอยากเพิ่ม later ทำ dropdown ได้) */}
-        <button className="md:hidden p-2 rounded hover:bg-orange-600">
-          <span className="sr-only">เมนู</span>
-          ☰
-        </button>
+        {/* สมัครสมาชิก */}
+
       </div>
     </header>
   );

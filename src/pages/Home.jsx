@@ -1,30 +1,29 @@
+import React from 'react';
+
+const Home = () => {
+  return (
+    <>
 <section
   id="home"
-  className="relative bg-center min-h-screen flex items-center justify-center"
+  className="relative bg-cover bg-center h-screen flex items-center justify-center "
   style={{
-    backgroundImage: "url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: "url('h2.jpg')",
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
   }}
 >
-  {/* Overlay ทึบ */}
-  <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+  {/* ชั้นมืดครอบพื้นหลัง */}
+  <div className="absolute inset-0 bg-opacity-60"></div>
 
-  {/* เนื้อหา */}
-  <div className="relative text-center text-white px-4 max-w-4xl">
-    <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-xl">
-      ค้นพบ <span className="text-orange-500">ร้านอาหารท้องถิ่น</span><br />ที่ดีที่สุด
+  {/* เนื้อหาตรงกลาง */}
+  <div className="relative text-white text-center px-4">
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+      ค้นพบ <span className="text-orange-500">ร้านอาหารท้องถิ่น</span> ที่ดีที่สุด
     </h1>
     <p className="text-lg md:text-xl mb-8 drop-shadow-md">
       สำรวจรสชาติแท้ของอาหารไทยจากร้านอาหารท้องถิ่นที่ดีที่สุดทั่วประเทศไทย
     </p>
-
-    {/* ปุ่ม */}
-    <div className="flex flex-wrap justify-center gap-3 mb-6">
-      <button className="bg-white text-black px-5 py-2 rounded-full shadow font-medium">📍</button>
-      <button className="bg-white text-black px-5 py-2 rounded-full shadow font-medium">⭐</button>
-      <button className="bg-white text-black px-5 py-2 rounded-full shadow font-medium">⏳</button>
-    </div>
 
     <div className="flex flex-wrap justify-center gap-4">
       <a
@@ -42,3 +41,9 @@
     </div>
   </div>
 </section>
+
+    </>
+  );
+};
+
+export default Home;
